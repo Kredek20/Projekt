@@ -1,0 +1,102 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MichalRedek
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            ConsoleKeyInfo mrWybórFunkcjonalności;
+            Console.WriteLine("\n\tProgram umożliwia wielokrotne obliczanie:" + "sum, iloczynów i różnych średnich ciągów liczbowych!");
+
+            do
+
+            {
+
+                Console.WriteLine("\n\tFunkcjonalne menu programu\n");
+                Console.WriteLine("\n\tA. Obliczanie sumy <in-line>");
+                Console.WriteLine("\n\tB. Obliczanie sumy <method call>");
+                Console.WriteLine("\n\tC. Obliczanie iloczynu <in-line>");
+                Console.WriteLine("\n\tD. Obliczanie iloczynu <method call>");
+                Console.WriteLine("\n\tE. Obliczanie średniej arytmetycznej <in-line>");
+                Console.WriteLine("\n\tF. Obliczanie średniej arytmetycznej <method call>");
+                Console.WriteLine("\n\tG. Obliczanie średniej ważonej <in-line>");
+                Console.WriteLine("\n\tH. Obliczanie średniej ważonej <method call>");
+                Console.WriteLine("\n\tI. Obliczanie ceny jednostki paszy <in-line>");
+                Console.WriteLine("\n\tJ. Obliczanie ceny jednostki paszy <method call>");
+                Console.WriteLine("\n\tK. Obliczanie średniej harmonicznej <in-line>");
+                Console.WriteLine("\n\tL. Obliczanie średniej harmonicznej <method call>");
+                Console.WriteLine("\n\tM. Obliczanie średniej geometrycznej <in-line>");
+                Console.WriteLine("\n\tN. Obliczanie średniej geometrycznej <method call>");
+                Console.WriteLine("\n\tO. Obliczanie średniej kwadratowej <in-line>");
+                Console.WriteLine("\n\tP. Obliczanie średniej kwadratowej <method call>");
+                Console.WriteLine("\n\tQ. Obliczanie średniej potęgowej <in-line>");
+                Console.WriteLine("\n\tI. Obliczanie średniej potęgowej <method call>");
+                Console.WriteLine("\n\tX. Zakończenie działania programu.");
+                Console.WriteLine("\n\tNaciśnięciem odpowiedniego klawisza na klawiaturze wybierz odpowiednią" + " funkcjonalność programu: ");
+
+                mrWybórFunkcjonalności = Console.ReadKey();
+
+                if (mrWybórFunkcjonalności.Key == ConsoleKey.A)
+                {
+
+
+
+                    int mrn; //liczność ciągu liczbowego
+                    float mra;
+                    float mrSuma = 0.0f;
+                    Console.WriteLine("\nObliczamy sumę wyrazów ciągu liczbowego");
+
+
+
+
+                    do
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Podaj liczność ciągu liczbowego n: ");
+                        while (!int.TryParse(Console.ReadLine(), out mrn))
+                        {
+                            Console.WriteLine("\n\tERROR w zapisie liczby n wystąpił" + " niedozwolony znak");
+                            Console.Write("\n\tPodaj wartość n jeszcze raz!: ");
+                        }
+                        if (mrn <= 0)
+                        {
+                            Console.WriteLine("\n\tLiczba n musi być większa od 0!");
+                            Console.Write("\n\tPodaj wartość n jeszcze raz!: ");
+                        }
+                        for (int mri = 1; mri <= mrn; mri++)
+                        {
+                            Console.Write("\n\tPodaj {0} -ą wartość wyrazu ciągu liczbowego: ", mri);
+                            while (!float.TryParse(Console.ReadLine(), out mra))
+                            {
+                                Console.WriteLine("\n\tERROR w zapisie {0} -go wyrazu ciągu liczbowego" + " wystąpił niedozowolony\n\t\t znak", mri);
+                                Console.Write("\n\tPodaj wartość wyrazu ciągu liczbowego jeszcze raz!: ");
+                            }
+                            mrSuma = mrSuma + mra;
+                        }
+                    } while (mrn <= 0);
+
+                    Console.WriteLine("\n\n\tSuma {0} wyrazów ciągu liczbowego jest równa: " + "{1,6:F3}", mrn, mrSuma);
+                    Console.WriteLine("\n\tDla kontynuacji działania programu naciśnij dowolny klawisz...");
+                    Console.ReadKey();
+                    Console.Clear();
+                }
+                else
+                    if (mrWybórFunkcjonalności.Key == ConsoleKey.B)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Tutaj bedzie b");
+
+                }
+            } while (mrWybórFunkcjonalności.Key != ConsoleKey.X);
+            Console.Clear();
+            Console.WriteLine("\n\n\t ZAKOŃCZENIE PROGRAMU: ");
+            Console.WriteLine("\n\t Naciśnij dowolny klawisz by opuścić program");
+            Console.ReadKey();
+        }
+    }
+}
