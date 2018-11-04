@@ -8,6 +8,49 @@ namespace MichalRedek
 {
     class Program
     {
+        public static void mrIloczyn()
+        {
+
+            int mrn; //liczność ciągu liczbowego
+            float mra;
+            float mrIloczyn = 1.0f;
+            Console.WriteLine("\nObliczamy iloczyn wyrazów ciągu liczbowego");
+
+
+
+
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("Podaj liczność ciągu liczbowego n: ");
+                while (!int.TryParse(Console.ReadLine(), out mrn))
+                {
+                    Console.WriteLine("\n\tERROR w zapisie liczby n wystąpił" + " niedozwolony znak");
+                    Console.Write("\n\tPodaj wartość n jeszcze raz!: ");
+                }
+                if (mrn <= 0)
+                {
+                    Console.WriteLine("\n\tLiczba n musi być większa od 0!");
+                    Console.Write("\n\tPodaj wartość n jeszcze raz!: ");
+                }
+                for (int i = 1; i <= mrn; i++)
+                {
+                    Console.Write("\n\tPodaj {0} -ą wartość wyrazu ciągu liczbowego: ", i);
+                    while (!float.TryParse(Console.ReadLine(), out mra))
+                    {
+                        Console.WriteLine("\n\tERROR w zapisie {0} -go wyrazu ciągu liczbowego" + " wystąpił niedozowolony\n\t\t znak", i);
+                        Console.Write("\n\tPodaj wartość wyrazu ciągu liczbowego jeszcze raz!: ");
+                    }
+                    mrIloczyn = mrIloczyn * mra;
+                }
+                                 
+            } while (mrn <= 0);
+
+            Console.WriteLine("\n\n\tIloczyn {0} wyrazów ciągu liczbowego jest równa: " + "{1,15:G3}", mrn, mrIloczyn);
+            Console.WriteLine("\n\tDla kontynuacji działania programu naciśnij dowolny klawisz...");
+            Console.ReadKey();
+            Console.Clear();
+        }
         public static void mrSuma()
         {
             int mrn; //liczność ciągu liczbowego
@@ -51,7 +94,7 @@ namespace MichalRedek
         }
         static void Main(string[] args) /* -----------------------------------------------------
             -----------------------------------------------------------------------------------------------------
-            ---------------------------------main-------------------------------------
+            -------------------------------------------MAINMAINMAIN----------------------------------------------
             -----------------------------------------------------------------------------------------------------
             -----------------------------------------------------------------------------------------------------
             -----------------------------------------------------------------------------------------------------
@@ -88,7 +131,7 @@ namespace MichalRedek
 
                 mrWybórFunkcjonalności = Console.ReadKey();
 
-                if (mrWybórFunkcjonalności.Key == ConsoleKey.A)
+                if (mrWybórFunkcjonalności.Key == ConsoleKey.A) // FUNKCJONALNOŚĆ A
                 {
 
 
@@ -133,12 +176,63 @@ namespace MichalRedek
                     Console.Clear(); 
                 }
                 else
-                    if (mrWybórFunkcjonalności.Key == ConsoleKey.B)
+                    if (mrWybórFunkcjonalności.Key == ConsoleKey.B) // FUNKCJONALNOŚĆ B
                 {
                     Console.Clear();
                     mrSuma();
 
                 }
+                else
+                    if (mrWybórFunkcjonalności.Key == ConsoleKey.C) // FUNKCJONALNOŚĆ C
+                {
+
+                    int mrn; //liczność ciągu liczbowego
+                    float mra;
+                    float mrIloczyn = 1.0f;
+                    Console.WriteLine("\nObliczamy iloczyn wyrazów ciągu liczbowego");
+
+
+
+
+                    do
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Podaj liczność ciągu liczbowego n: ");
+                        while (!int.TryParse(Console.ReadLine(), out mrn))
+                        {
+                            Console.WriteLine("\n\tERROR w zapisie liczby n wystąpił" + " niedozwolony znak");
+                            Console.Write("\n\tPodaj wartość n jeszcze raz!: ");
+                        }
+                        if (mrn <= 0)
+                        {
+                            Console.WriteLine("\n\tLiczba n musi być większa od 0!");
+                            Console.Write("\n\tPodaj wartość n jeszcze raz!: ");
+                        }
+                        for (int i = 1; i <= mrn; i++)
+                        {
+                            Console.Write("\n\tPodaj {0} -ą wartość wyrazu ciągu liczbowego: ", i);
+                            while (!float.TryParse(Console.ReadLine(), out mra))
+                            {
+                                Console.WriteLine("\n\tERROR w zapisie {0} -go wyrazu ciągu liczbowego" + " wystąpił niedozowolony\n\t\t znak", i);
+                                Console.Write("\n\tPodaj wartość wyrazu ciągu liczbowego jeszcze raz!: ");
+                            }
+                            mrIloczyn = mrIloczyn * mra;
+                        }
+                    } while (mrn <= 0);
+
+                    Console.WriteLine("\n\n\tIloczyn {0} wyrazów ciągu liczbowego jest równa: " + "{1,15:G3}", mrn, mrIloczyn);
+                    Console.WriteLine("\n\tDla kontynuacji działania programu naciśnij dowolny klawisz...");
+                    Console.ReadKey();
+                    Console.Clear();
+                }
+                else
+                    if (mrWybórFunkcjonalności.Key == ConsoleKey.D) // FUNKCJONALNOŚĆ D
+                        {
+                            Console.Clear();
+                            mrIloczyn();
+
+                        }
+                    
             } while (mrWybórFunkcjonalności.Key != ConsoleKey.X);
             Console.Clear();
             Console.WriteLine("\n\n\t ZAKOŃCZENIE PROGRAMU: ");
