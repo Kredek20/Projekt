@@ -1,0 +1,62 @@
+using System;
+					
+public class Program
+{
+	 public static void mrSredniaKwadratowa()
+        
+            {int mrn; //liczność ciągu liczbowego
+                    double mra;
+			 		double mrapow;
+                    double mrSuma = 0.0f;
+			 		int mrpow;
+                    Console.WriteLine("\nObliczamy sumę wyrazów ciągu liczbowego");
+
+
+
+
+                    do
+                    {
+                        
+                        Console.WriteLine("Podaj liczność ciągu liczbowego n: ");
+                        while (!int.TryParse(Console.ReadLine(), out mrn))
+                        {
+                            Console.WriteLine("\n\tERROR w zapisie liczby n wystąpił" + " niedozwolony znak");
+                            Console.Write("\n\tPodaj wartość n jeszcze raz!: ");
+                        }
+                        if (mrn <= 0)
+                        {
+                            Console.WriteLine("\n\tLiczba n musi być większa od 0!");
+                            Console.Write("\n\tPodaj wartość n jeszcze raz!: ");
+                        }
+						while (!int.TryParse(Console.ReadLine(), out mrpow))
+                        {
+                            Console.WriteLine("\n\tERROR w zapisie liczby n wystąpił" + " niedozwolony znak");
+                            Console.Write("\n\tPodaj wartość n jeszcze raz!: ");
+                        }
+						
+                        for (int mri = 1; mri <= mrn; mri++)
+                        {
+                            Console.Write("\n\tPodaj {0} -ą wartość wyrazu ciągu liczbowego: ", mri);
+                            while (!double.TryParse(Console.ReadLine(), out mra))
+                            {
+                                Console.WriteLine("\n\tERROR w zapisie {0} -go wyrazu ciągu liczbowego" + " wystąpił niedozowolony\n\t\t znak", mri);
+                                Console.Write("\n\tPodaj wartość wyrazu ciągu liczbowego jeszcze raz!: ");
+                            }
+							mrapow = Math.Pow(mra, mrpow);
+                            mrSuma = mrSuma + mrapow;
+                        }
+                    } while (mrn <= 0);					
+			 		double mrSumaHarmoniczna = mrSuma/mrn;			 		
+                    double mrSredniaPotegowa;
+			 		double mrg = 1.0f/mrpow;			 
+                    mrSredniaPotegowa = Math.Pow(mrSumaHarmoniczna , mrg);
+
+                    Console.WriteLine("\n\n\tŚrednia potęgowa {0} wyrazów ciągu liczbowego jest równa: " + "{1,6:F3}", mrn, mrSredniaPotegowa);
+                    Console.WriteLine("\n\tDla kontynuacji działania programu naciśnij dowolny klawisz...");
+              
+}
+	public static void Main()
+	{
+		mrSredniaKwadratowa();
+	}
+}
