@@ -1,0 +1,51 @@
+using System;
+					
+public class Program
+{
+	 public static void mrSredniaGeometryczna()
+        
+            {int mrn; //liczność ciągu liczbowego
+            float mra;
+            float mrIloczyn = 1.0f;
+Console.WriteLine("\nObliczamy iloczyn wyrazów ciągu liczbowego");
+
+                    do
+                    {
+             
+                Console.WriteLine("Podaj liczność ciągu liczbowego n: ");
+                while (!int.TryParse(Console.ReadLine(), out mrn))
+                {
+                    Console.WriteLine("\n\tERROR w zapisie liczby n wystąpił" + " niedozwolony znak");
+                    Console.Write("\n\tPodaj wartość n jeszcze raz!: ");
+                }
+                if (mrn <= 0)
+                {
+                    Console.WriteLine("\n\tLiczba n musi być większa od 0!");
+                    Console.Write("\n\tPodaj wartość n jeszcze raz!: ");
+                }
+                for (int i = 1; i <= mrn; i++)
+                {
+                    Console.Write("\n\tPodaj {0} -ą wartość wyrazu ciągu liczbowego: ", i);
+                    while (!float.TryParse(Console.ReadLine(), out mra))
+                    {
+                        Console.WriteLine("\n\tERROR w zapisie {0} -go wyrazu ciągu liczbowego" + " wystąpił niedozowolony\n\t\t znak", i);
+                        Console.Write("\n\tPodaj wartość wyrazu ciągu liczbowego jeszcze raz!: ");
+                    }
+					mrIloczyn = mrIloczyn * mra;
+                }
+                                 
+            } while (mrn <= 0);
+					double mrSredniaGeometryczna;
+			 double mrpow = 1.0f/mrn;
+			 
+			mrSredniaGeometryczna = Math.Pow(mrIloczyn , mrpow);
+					
+            		Console.WriteLine("\n\n\tIloczyn {0} wyrazów ciągu liczbowego jest równa: " + "{1,15:G3}", mrn, mrSredniaGeometryczna);
+					Console.WriteLine("\n\tDla kontynuacji działania programu naciśnij dowolny klawisz...");
+              
+}
+	public static void Main()
+	{
+		mrSredniaGeometryczna();
+	}
+}
