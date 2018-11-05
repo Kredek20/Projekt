@@ -1,0 +1,65 @@
+using System;
+					
+public class Program
+{
+	 public static void mrSredniaWazona()
+        
+            {
+                int mrn; //liczność ciągu liczbowego
+                float mra;
+                float mrSuma = 0.0f;
+				float mrWaga;
+		 		float mrSumaWag = 0.0f;
+                Console.WriteLine("\nObliczamy sumę wyrazów ciągu liczbowego");
+
+
+
+
+                do
+                {
+                    Console.WriteLine("Podaj liczność ciągu liczbowego n: ");
+                    while (!int.TryParse(Console.ReadLine(), out mrn))
+                    {
+                        Console.WriteLine("\n\tERROR w zapisie liczby n wystąpił" + " niedozwolony znak");
+                        Console.Write("\n\tPodaj wartość n jeszcze raz!: ");
+                    }
+                    if (mrn <= 0)
+                    {
+                        Console.WriteLine("\n\tLiczba n musi być większa od 0!");
+                        Console.Write("\n\tPodaj wartość n jeszcze raz!: ");
+                    }
+                    for (int mri = 1; mri <= mrn; mri++)
+                    {
+                        Console.Write("\n\tPodaj {0} -ą wartość wyrazu ciągu liczbowego: ", mri);
+                        while (!float.TryParse(Console.ReadLine(), out mra))
+                        {
+                            Console.WriteLine("\n\tERROR w zapisie {0} -go wyrazu ciągu liczbowego" + " wystąpił niedozowolony\n\t\t znak", mri);
+                            Console.Write("\n\tPodaj wartość wyrazu ciągu liczbowego jeszcze raz!: ");
+                        }
+						Console.Write("\n\tPodaj {0} -ą wagę wyrazu ciągu liczbowego: ", mri);
+                       while (!float.TryParse(Console.ReadLine(), out mrWaga))
+                        {
+                            Console.WriteLine("\n\tERROR w zapisie {0} -go wyrazu ciągu liczbowego" + " wystąpił niedozowolony\n\t\t znak", mri);
+                            Console.Write("\n\tPodaj wartość wyrazu ciągu liczbowego jeszcze raz!: ");
+                        }
+						mrSuma += mra*mrWaga;
+						mrSumaWag += mrWaga;
+                    }
+                } while (mrn <= 0);
+		 
+		 	
+
+                float mrSredniaWazona;
+                mrSredniaWazona = mrSuma / mrSumaWag;
+
+                Console.WriteLine("\n\n\tŚrednia wazona {0} wyrazów ciągu liczbowego jest równa: " + "{1,6:F3}", mrn, mrSredniaWazona);
+                Console.WriteLine("\n\tDla kontynuacji działania programu naciśnij dowolny klawisz...");
+                Console.Clear();
+
+            }
+
+	public static void Main()
+	{
+		mrSredniaWazona();
+	}
+}
